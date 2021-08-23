@@ -15,12 +15,18 @@ const reducers = (state = initialState, action) => {
       };
 
     case actionTypes.DELETE:
+      console.log("clicked", action.payload);
       return {
         ...state,
         notes: state.notes.filter((list) => list.id !== action.payload),
       };
     case actionTypes.EDIT:
-      return {};
+      return {
+        ...state,
+        notes: state.notes.map((list) =>
+          list.id === action.payload ? action.payload : list
+        ),
+      };
     default:
       return state;
   }

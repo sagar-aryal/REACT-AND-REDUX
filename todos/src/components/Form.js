@@ -27,8 +27,11 @@ class Form extends Component {
           <ul>
             {this.props.noteList.map((item) => (
               <li key={item.id}>
-                {item.task} <button onClick={this.props.onEdit}>Edit</button>
-                <button onClick={this.props.onDelete}>Delete</button>
+                {item.task}
+                <button onClick={() => this.props.onEdit(item.id)}>Edit</button>
+                <button onClick={() => this.props.onDelete(item.id)}>
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
@@ -53,8 +56,8 @@ const mapDispatchToProps = (dispatch) => {
       event.preventDefault();
       dispatch({ type: actionTypes.ADD });
     },
-    onDelete: (id) => dispatch({ type: actionTypes.DELETE, payload: id }),
-    onEdit: (id) => dispatch({ type: actionTypes.EDIT, payload: id }),
+    onDelete: (payload) => dispatch({ type: actionTypes.DELETE, payload }),
+    onEdit: (payload) => dispatch({ type: actionTypes.EDIT, payload }),
   };
 };
 
