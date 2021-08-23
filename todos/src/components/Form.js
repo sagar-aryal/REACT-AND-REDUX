@@ -7,12 +7,29 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <input type="text" placeholder="Add your notes here"></input>
-        <button onClick={this.props.onAdd}>ADD</button>
+        <h1>Todos-List</h1>
+        <p>
+          Currently, you have {this.props.noteList.length} notes in your
+          todos-list.
+        </p>
+        <form onSubmit={this.props.onSubmit}>
+          <input
+            type="text"
+            placeholder="Add notes...."
+            value={this.props.inputNotes}
+            onChange={this.props.onInputNotes}
+          />
+
+          <button type="submit">ADD</button>
+        </form>
+
         <div>
           <ul>
-            {this.props.storedNotes.map((item) => (
-              <li key={item.id}>{item.value}</li>
+            {this.props.noteList.map((item) => (
+              <li key={item.id}>
+                {item.task} <button onClick={this.props.onEdit}>Edit</button>
+                <button onClick={this.props.onDelete}>Delete</button>
+              </li>
             ))}
           </ul>
         </div>
@@ -23,13 +40,21 @@ class Form extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    storedNotes: state.notes,
+    inputNotes: state.inputNote,
+    noteList: state.notes,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAdd: () => dispatch({ type: actionTypes.ADD }),
+    onInputNotes: (event) =>
+      dispatch({ type: actionTypes.INPUTNOTES, payload: event.target.value }),
+    onSubmit: (event) => {
+      event.preventDefault();
+      dispatch({ type: actionTypes.ADD });
+    },
+    onDelete: (id) => dispatch({ type: actionTypes.DELETE, payload: id }),
+    onEdit: (id) => dispatch({ type: actionTypes.EDIT, payload: id }),
   };
 };
 
