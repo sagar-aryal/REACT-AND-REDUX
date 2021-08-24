@@ -56,8 +56,8 @@ const mapDispatchToProps = (dispatch) => {
       event.preventDefault();
       dispatch({ type: actionTypes.ADD });
     },
-    onDelete: (payload) => dispatch({ type: actionTypes.DELETE, payload }),
-    onEdit: (payload) => dispatch({ type: actionTypes.EDIT, payload }),
+    onDelete: (id) => dispatch({ type: actionTypes.DELETE, payload: id }),
+    onEdit: (id) => dispatch({ type: actionTypes.EDIT, payload: id }),
   };
 };
 
