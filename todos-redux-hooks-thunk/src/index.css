@@ -1,1 +1,8 @@
+.todo {
+  color: antiquewhite;
+}
 
+.todo.strike {
+  color: red;
+  text-decoration: line-through;
+}

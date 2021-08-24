@@ -1,23 +1,27 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import * as actionTypes from "../store/actions";
 
 const Notes = () => {
   const notes = useSelector((state) => state);
-  // const texts = useSelector((state) => state.texts);
+  const dispatch = useDispatch();
+
+  const toggleTodo = (id) => ({ type: actionTypes.TOGGLE_TODO, id: id });
 
   return (
     <div>
       <ul>
         {notes.map((note) => (
-          <li key={note.id}>{note.text}</li>
+          <li
+            key={note.id}
+            onClick={dispatch(toggleTodo(note.id))}
+            className={note.completed ? "strike todo" : "todo"}
+          >
+            {note.text}
+          </li>
         ))}
       </ul>
-      {/* <ul>
-        {texts.map((text) => (
-          <li key={text.id}>{text.text}</li>
-        ))}
-      </ul> */}
     </div>
   );
 };
