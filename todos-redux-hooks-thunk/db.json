@@ -14,6 +14,11 @@
       "text": "react redux middleware thunk",
       "completed": true,
       "id": 3
+    },
+    {
+      "text": "lets lean axios",
+      "completed": false,
+      "id": 4
     }
   ]
 }
