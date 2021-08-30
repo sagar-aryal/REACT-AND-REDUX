@@ -15,7 +15,7 @@ const Notes = () => {
         {notes.map((note) => (
           <li
             key={note.id}
-            onClick={dispatch(toggleTodo(note.id))}
+            onClick={() => dispatch(toggleTodo(note.id))}
             className={note.completed ? "strike todo" : "todo"}
           >
             {note.text}
