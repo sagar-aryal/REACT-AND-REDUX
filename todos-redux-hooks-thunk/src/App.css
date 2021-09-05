@@ -16,7 +16,7 @@ input button {
 }
 
 .todo {
-  color: green;
+  color: rgb(20, 7, 199);
 }
 .todo.strike {
   color: red;

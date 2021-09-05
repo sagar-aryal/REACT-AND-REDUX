@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Todos-List with React, Redux, Hook and Trunk</h1>
+      <h1>Todos-List 🤞 </h1>
       <NewNote />
       <Notes />
     </div>

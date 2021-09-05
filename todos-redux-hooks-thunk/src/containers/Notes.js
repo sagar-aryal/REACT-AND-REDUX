@@ -8,6 +8,8 @@ const Notes = () => {
   const dispatch = useDispatch();
 
   const toggleTodo = (id) => ({ type: actionTypes.TOGGLE_TODO, id: id });
+  const editTodo = (id) => ({ type: actionTypes.EDIT_TODO, id: id });
+  const deleteTodo = (id) => ({ type: actionTypes.DELETE_TODO, id: id });
 
   return (
     <div>
@@ -19,6 +21,10 @@ const Notes = () => {
             className={note.completed ? "strike todo" : "todo"}
           >
             {note.text}
+            <button onClick={() => dispatch(editTodo(note.id))}>Edit</button>
+            <button onClick={() => dispatch(deleteTodo(note.id))}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>

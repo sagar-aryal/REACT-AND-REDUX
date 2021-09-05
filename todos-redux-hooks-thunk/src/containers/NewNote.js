@@ -20,8 +20,8 @@ const NewNote = () => {
 
   return (
     <form onSubmit={addTodo}>
-      <input type="text" placeholder="Enter your notes...." name="noteInput" />
-      <input type="submit" value="Add" />
+      <input type="text" placeholder=" ✍️ Add new tasks..." name="noteInput" />
+      <input type="submit" value="+" />
     </form>
   );
 };

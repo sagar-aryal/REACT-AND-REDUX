@@ -9,13 +9,30 @@ const reducer = (state = [], action) => {
     case actionTypes.ADD_TODO:
       return [...state, action.data];
 
+    case actionTypes.EDIT_TODO:
+      return {};
+
+    case actionTypes.DELETE_TODO:
+      const updateNotes = state.filter((note) => note.id !== action.id);
+      return updateNotes;
+
     case actionTypes.TOGGLE_TODO:
-      const noteToChange = state.find((n) => n.id === action.id);
-      const changeNote = {
-        ...noteToChange,
-        completed: !noteToChange.completed,
-      };
-      return state.map((note) => (note.id !== action.id ? note : changeNote));
+      // const noteToChange = state.find((n) => n.id === action.id);
+      // const changeNote = {
+      //   ...noteToChange,
+      //   completed: !noteToChange.completed,
+      // };
+      // return state.map((note) => (note.id !== action.id ? note : changeNote));
+
+      state.map((note) => {
+        if (note.id === action.id) {
+          return {
+            ...note,
+            completed: !note.completed,
+          };
+        }
+        return note;
+      });
 
     default:
       return state;
