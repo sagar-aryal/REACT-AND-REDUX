@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Selenite",
+      "price": 15.99
+    },
+    {
+      "id": 2,
+      "name": "Moonstone",
+      "price": 10.99
+    },
+    {
+      "id": 3,
+      "name": "Granite",
+      "price": 20.99
+    },
+    {
+      "id": 4,
+      "name": "Chalk",
+      "price": 5.99
+    }
+  ]
+}
