@@ -13,8 +13,7 @@ const reducer = (state = [], action) => {
       return {};
 
     case actionTypes.DELETE_TODO:
-      const updateNotes = state.filter((note) => note.id !== action.id);
-      return updateNotes;
+      return state.filter((n) => n.id !== action.id);
 
     case actionTypes.TOGGLE_TODO:
       // const noteToChange = state.find((n) => n.id === action.id);
@@ -30,8 +29,9 @@ const reducer = (state = [], action) => {
             ...note,
             completed: !note.completed,
           };
+        } else {
+          return note;
         }
-        return note;
       });
 
     default:
