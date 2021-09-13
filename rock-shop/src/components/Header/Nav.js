@@ -1,12 +1,21 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+import Carts from "../../pages/Carts";
+
 const Nav = () => {
   return (
     <div>
       <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>Carts(0)</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/products">Products</Link>
+        </li>
+        <li>
+          <Link to="/carts">Carts(0)</Link>
+        </li>
       </ul>
     </div>
   );

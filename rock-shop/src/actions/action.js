@@ -1,21 +1,26 @@
-import { getAll } from "../services/productsList";
+import * as actionTypes from "./actionType";
+import { getAll } from "../services/products";
 
-export const initialProducts = () => {
+export const getProducts = () => {
   return async (dispatch) => {
     const products = await getAll();
+
     dispatch({
-      type: INIT_PRODUCTS,
+      type: actionTypes.GET_PRODUCTS,
       payload: products,
     });
   };
 };
 
+export const addProducts = (selectedProduct) => {
+  return {
+    type: actionTypes.ADD_PRODUCTS,
+    payload: selectedProduct,
+  };
+};
+
 export const removeProducts = () => {
-  return async (dispatch) => {
-    const updateProducts = await getAll();
-    dispatch({
-      type: REMOVE_PRODUCTS,
-      payload: updateProducts,
-    });
+  return {
+    type: actionTypes.REMOVE_PRODUCTS,
   };
 };

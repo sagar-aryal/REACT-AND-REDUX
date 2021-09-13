@@ -1,2 +1,0 @@
-export const INIT_PRODUCTS = "INIT_PRODUCTS";
-export const REMOVE_PRODUCTS = "REMOVE_PRODUCTS";
