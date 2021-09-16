@@ -1,4 +1,4 @@
-# REACT_AND_REDUX
+# REACT-AND-REDUX
 
 ## Description
 
