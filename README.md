@@ -1,4 +1,4 @@
-# React-and-Redux
+# REACT_AND_REDUX
 
 ## Description
 
