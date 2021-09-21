@@ -1,23 +1,24 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addProducts, removeProducts } from "../actions/action";
+import { removeFromCart } from "../actions/action";
 
 const Carts = () => {
-  const product = useSelector((state) => state.selectedProductsReducer);
-  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    dispatch(addProducts());
-  }, [dispatch]);
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <h3>{product.name}</h3>
-      <h5>{product.price}</h5>
-      <button onClick={() => dispatch(removeProducts(product.id))}>
-        Remove
-      </button>
+      <h2>Total number of added products ({cartItems.length})</h2>
+      {cartItems.map((item) => (
+        <li key={item.id}>
+          <p>{item.title}</p>
+          <p>{item.price}</p>
+          <button onClick={() => dispatch(removeFromCart(item))}>
+            Remove From Cart
+          </button>
+        </li>
+      ))}
     </div>
   );
 };

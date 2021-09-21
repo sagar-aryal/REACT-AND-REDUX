@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionType";
-import { getAll } from "../services/products";
+import { getAll, getSelectedProduct } from "../services/products";
 
 export const getProducts = () => {
   return async (dispatch) => {
@@ -12,15 +12,53 @@ export const getProducts = () => {
   };
 };
 
-export const addProducts = (selectedProduct) => {
-  return {
-    type: actionTypes.ADD_PRODUCTS,
-    payload: selectedProduct,
+export const getProductDetails = (productId) => {
+  return async (dispatch) => {
+    const product = await getSelectedProduct(productId);
+
+    dispatch({
+      type: actionTypes.GET_SELECTED_PRODUCT,
+      payload: product,
+    });
   };
 };
 
-export const removeProducts = () => {
-  return {
-    type: actionTypes.REMOVE_PRODUCTS,
+export const removeProductDetails = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.REMOVE_SELECTED_PRODUCT,
+    });
   };
 };
+
+export const addToCart = (product) => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.ADD_TO_CART,
+      payload: product,
+    });
+  };
+};
+
+export const removeFromCart = (product) => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.REMOVE_FROM_CART,
+      payload: product,
+    });
+  };
+};
+
+// export const removeFromChart = (productId) => {
+//   return {
+//     type: actionTypes.REMOVE_FROM_CART,
+//     payload: productId,
+//   };
+// };
+
+// export const adjustQuantity = (productId, value) => {
+//   return {
+//     type: actionTypes.REMOVE_PRODUCT,
+//     payload: { id: productId, value: quantity },
+//   };
+// };

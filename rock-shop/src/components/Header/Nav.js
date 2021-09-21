@@ -1,9 +1,10 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import Carts from "../../pages/Carts";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
+  const cartItems = useSelector((state) => state.cart);
   return (
     <div>
       <ul>
@@ -14,7 +15,7 @@ const Nav = () => {
           <Link to="/products">Products</Link>
         </li>
         <li>
-          <Link to="/carts">Carts(0)</Link>
+          <Link to="/carts">Carts({cartItems.length})</Link>
         </li>
       </ul>
     </div>
