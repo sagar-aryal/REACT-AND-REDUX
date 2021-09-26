@@ -48,17 +48,3 @@ export const removeFromCart = (product) => {
     });
   };
 };
-
-// export const removeFromChart = (productId) => {
-//   return {
-//     type: actionTypes.REMOVE_FROM_CART,
-//     payload: productId,
-//   };
-// };
-
-// export const adjustQuantity = (productId, value) => {
-//   return {
-//     type: actionTypes.REMOVE_PRODUCT,
-//     payload: { id: productId, value: quantity },
-//   };
-// };

@@ -5,6 +5,10 @@ import { useSelector } from "react-redux";
 
 const Nav = () => {
   const cartItems = useSelector((state) => state.cart);
+  let totalItems = cartItems
+    .map((item) => item.inCart)
+    .reduce((item, inCart) => item + inCart, 0);
+
   return (
     <div>
       <ul>
@@ -15,7 +19,7 @@ const Nav = () => {
           <Link to="/products">Products</Link>
         </li>
         <li>
-          <Link to="/carts">Carts({cartItems.length})</Link>
+          <Link to="/carts">Carts ({totalItems})</Link>
         </li>
       </ul>
     </div>
