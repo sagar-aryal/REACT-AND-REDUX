@@ -10,16 +10,22 @@ const Nav = () => {
     .reduce((item, inCart) => item + inCart, 0);
 
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+    <div className="navigation-bar">
+      <ul className="navigation-list">
+        <li className="navigation-item">
+          <Link to="/" className="navigation-link">
+            Home
+          </Link>
         </li>
-        <li>
-          <Link to="/products">Products</Link>
+        <li className="navigation-item">
+          <Link to="/products" className="navigation-link">
+            Products
+          </Link>
         </li>
-        <li>
-          <Link to="/carts">Carts ({totalItems})</Link>
+        <li className="navigation-item">
+          <Link to="/carts" className="navigation-link">
+            Carts ({totalItems})
+          </Link>
         </li>
       </ul>
     </div>

@@ -1,8 +1,6 @@
 import axios from "axios";
 
-// const baseUrl = "http://localhost:3001/products";
-
-const baseUrl = "https://fakestoreapi.com/products";
+const baseUrl = "http://localhost:3001/products";
 
 export const getAll = async () => {
   const response = await axios.get(baseUrl);

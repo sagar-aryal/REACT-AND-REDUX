@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProducts } from "../actions/action";
+import { addToCart, getProducts } from "../actions/action";
 
 const ProductLists = () => {
   const products = useSelector((state) => state.products);
@@ -12,18 +12,24 @@ const ProductLists = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <ul>
-        {products.map((product) => (
+    <div className="productList">
+      {products.map((product) => (
+        <div className="card" key={product.id}>
           <Link to={`/product/${product.id}`}>
-            <li key={product.id}>
-              <img src={`${product.image}`} alt={product.title} />
-              <h3>{product.title}</h3>
-              <h5>€{product.price}</h5>
-            </li>
+            <img src={`${product.image}`} alt={product.title} />
           </Link>
-        ))}
-      </ul>
+          <div className="content">
+            {/*  <h3>{product.title.substring(0, 10) + `...`} </h3> */}
+            <span>€{product.price}</span>
+            <button>
+              <Link to={`/product/${product.id}`}>View Details</Link>
+            </button>
+            <button onClick={() => dispatch(addToCart(product))}>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

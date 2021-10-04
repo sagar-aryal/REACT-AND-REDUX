@@ -3,9 +3,18 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to my Rock Shop.</h1>
-      <Link to="/products">Let's Shop Together</Link>
+    <div className="home">
+      <div className="text-box">
+        <h1 className="primary-heading">
+          <span className="main-primary-heading">Welcome</span>
+          <span className="sub-primary-heading">
+            to my react-redux-sass shop
+          </span>
+        </h1>
+        <Link to="/products" className="btn btn-mainpage">
+          Let's Shop Together
+        </Link>
+      </div>
     </div>
   );
 };

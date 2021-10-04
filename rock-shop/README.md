@@ -7,8 +7,6 @@ This is an end assignment for the couse React-Redux.
 - React
 - Redux (state manageent)
 - SCSS
-- Material UI
-- json
 
 ## Dependencies
 
@@ -18,3 +16,5 @@ This is an end assignment for the couse React-Redux.
 - npm init react-redux
 - npm install redux-thunk
 - redux-devtools-extension
+- npm install json server --save-dev
+- npm install node-sass --save-dev

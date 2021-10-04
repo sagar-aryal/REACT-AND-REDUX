@@ -38,7 +38,7 @@ const Carts = () => {
             <button>Checkout</button>
           </div>
         ) : (
-          <h2>Your cart is empty</h2>
+          <h2>Your cart is empty. Please go to the product page.</h2>
         )}
       </div>
     </div>

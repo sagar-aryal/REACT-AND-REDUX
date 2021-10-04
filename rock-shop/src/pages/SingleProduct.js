@@ -22,11 +22,13 @@ const SingleProduct = () => {
   }, [dispatch]);
 
   return (
-    <div key={product.id}>
-      <button onClick={() => history.goBack()}>Bo Back </button>
+    <div className="details" key={product.id}>
+      <button onClick={() => history.goBack()}>Go Back </button>
       <img src={`${product.image}`} alt={product.title} />
-      <h3>{product.title}</h3>
-      <h5>€{product.price}</h5>
+      <div className="box">
+        <h2>{product.title}</h2>
+        <span>€{product.price}</span>
+      </div>
       <p>{product.description}</p>
       <button onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
     </div>

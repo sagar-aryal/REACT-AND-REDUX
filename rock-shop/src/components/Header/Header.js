@@ -5,12 +5,25 @@ import Home from "../../pages/Home";
 import ProductLists from "../../pages/ProductLists";
 import Carts from "../../pages/Carts";
 import SingleProduct from "../../pages/SingleProduct";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div>
-      <h1>React Redux Shopping Cart</h1>
-      <Nav />
+      <div className="header">
+        <div className="logo-box">
+          <Link to="/">
+            <div className="logo">
+              <span>s</span>
+              <span>h</span>
+              <span>o</span>
+              <span>p</span>
+              <span>€</span>
+            </div>
+          </Link>
+        </div>
+        <Nav />
+      </div>
 
       <Switch>
         <Route exact path="/" component={Home} />
