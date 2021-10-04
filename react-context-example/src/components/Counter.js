@@ -1,16 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { useCounter } from "../contexts/CounterContext";
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
-
+  const { count, increment, decrement } = useCounter();
   return (
     <div>
       <h3>Counter Application</h3>
