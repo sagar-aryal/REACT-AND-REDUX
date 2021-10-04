@@ -1,10 +1,16 @@
 import "./App.css";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import BookContextProvider from "./context/BookContext";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Book Library</h1>
-    </div>
+    <BookContextProvider>
+      <div className="App">
+        <Header />
+        <Main />
+      </div>
+    </BookContextProvider>
   );
 }
 
