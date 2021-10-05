@@ -19,7 +19,7 @@ const ProductLists = () => {
             <img src={`${product.image}`} alt={product.title} />
           </Link>
           <div className="content">
-            {/*  <h3>{product.title.substring(0, 10) + `...`} </h3> */}
+            <h3>{product.title.substring(0, 20) + `...`} </h3>
             <span>€{product.price}</span>
             <button>
               <Link to={`/product/${product.id}`}>View Details</Link>
